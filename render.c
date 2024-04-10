@@ -6,7 +6,7 @@
 /*   By: spitul <spitul@student.42berlin.de >       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 18:19:18 by spitul            #+#    #+#             */
-/*   Updated: 2024/04/06 18:41:25 by spitul           ###   ########.fr       */
+/*   Updated: 2024/04/07 16:51:31 by spitul           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,11 @@ void	handle_pixel(int x, int y, t_fractal *fractal)
 	c.y = map(y, 2, -2, 0, HEIGHT);
 	while()
 	{
-		
+		z = square_complex(square_complex(z), c);
+		if ()
+		{
+			
+		}
 	}
 }
 
