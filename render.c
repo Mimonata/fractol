@@ -6,7 +6,7 @@
 /*   By: spitul <spitul@student.42berlin.de >       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 18:19:18 by spitul            #+#    #+#             */
-/*   Updated: 2024/04/07 16:51:31 by spitul           ###   ########.fr       */
+/*   Updated: 2024/04/18 18:09:36 by spitul           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,15 @@ void	handle_pixel(int x, int y, t_fractal *fractal)
 {
 	t_complex	z;
 	t_complex	c;
+	double		re_factor;
+	double		im_factor;
 
 	z.x = 0;
 	z.y = 0;
-	c.x = map(x, -2, 2, 0, WIDTH);
-	c.y = map(y, 2, -2, 0, HEIGHT);
+	re_factor = 4 / (WIDTH - 1);
+	im_factor = 4 / (HEIGHT - 1); 
+	c.x = map(x, -2, re_factor);
+	c.y = map(y, 2, im_factor);
 	while()
 	{
 		z = square_complex(square_complex(z), c);
