@@ -35,6 +35,37 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
 }
 
+double	atod(char *s)
+{
+	long double	c;
+	double		fract_n;
+	double		power;
+	int			sign;
+
+	sign = 1;
+	power = 1;
+	c = 0;
+	fract_n = 0;
+	while (*s == 32 || (*s >= 9 && *s <= 13))
+		s ++;
+	while (*s == '+' || *s == '-')
+	{
+		if (*s == '-')
+			sign = -sign;
+		s ++;
+	}
+	while (*s != '.' && (*s >= 48 && *s <= 57) && *s)
+		c = c * 10 + (*s++ - 48);
+	if (*s == '.')
+		s ++;
+	while ((*s >= 48 && *s <= 57) && *s)
+	{
+		power /= 10;
+		fract_n = fract_n + (*s++ - 48) * power;
+	}
+	return ((c + fract_n) * sign);
+}
+
 /*int	main(void)
 {
 	ft_putstr_fd("does it work with \n\n", 1);
